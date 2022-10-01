@@ -16,8 +16,8 @@ class PokedexHome extends StatefulWidget{
 class PokedexHomeState extends State<PokedexHome>{
   
   String search = "";
-  List<Map<String, dynamic>> pokemons = [];
-
+  List pokemons = [];
+  
     @override
     void initState() {
     super.initState();
@@ -71,8 +71,8 @@ class PokedexHomeState extends State<PokedexHome>{
                     case ConnectionState.waiting:
                     case ConnectionState.active:
                       return Container(
-                        width: 200,
-                        height: 200,
+                        //width: 200,
+                        //height: 200,
                         alignment: Alignment.center,
                         child: const CircularProgressIndicator(
                           valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
@@ -82,8 +82,8 @@ class PokedexHomeState extends State<PokedexHome>{
                     case ConnectionState.done:
                       if (snapshot.hasError){
                         return Container(
-                        width: 200,
-                        height: 200,
+                        //width: 200,
+                        //height: 200,
                         alignment: Alignment.center,
                         child: const CircularProgressIndicator(
                           valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
@@ -104,7 +104,7 @@ class PokedexHomeState extends State<PokedexHome>{
   }
 
   Future<Map<String, dynamic>> getData () async {
-    var url = Uri.parse('https://pokeapi.co/api/v2/pokemon?limit=50');
+    var url = Uri.parse('https://pokeapi.co/api/v2/pokemon?limit=10000');
     var response = await http.get(url);
     var jsonResponse = json.decode(response.body);
     return jsonResponse;
@@ -175,3 +175,49 @@ class PokedexHomeState extends State<PokedexHome>{
     );
   }
 }
+  
+
+
+
+
+  // Color bgColor (type){
+  //   if (type == "normal"){
+  //     return Color(0xFFa8a8a8);
+  //   }else if (type == "fire"){
+  //     return Color(0xFFf08030);
+  //   }else if (type == "water"){
+  //     return Color(0xFF6890f0);
+  //   }else if (type == "eletric"){
+  //     return Color(0xFFf8b00f);
+  //   }else if (type == "grass"){
+  //     return Color(0xFF78c851);
+  //   }else if (type == "ice"){
+  //     return Color(0xFF98d9d8);
+  //   }else if (type == "fighting,"){
+  //     return Color(0xFFe83001);
+  //   }else if (type == "poison"){
+  //     return Color(0xFFa040a0);
+  //   }else if (type == "ground"){
+  //     return Color(0xFFd8e02f);
+  //   }else if (type == "flying"){
+  //     return Color(0xFF9f94be);
+  //   }else if (type == "psychic"){
+  //     return Color(0xFFf85888);
+  //   }else if (type == "bug"){
+  //     return Color(0xFFa8b821);
+  //   }else if (type == "rock"){
+  //     return Color(0xFFb8a038);
+  //   }else if (type == "ghost"){
+  //     return Color(0xFF5d4674);
+  //   }else if (type == "dragon"){
+  //     return Color(0xFF623bd5);
+  //   }else if (type == "dark"){
+  //     return Color(0xFF776554);
+  //   }else if (type == "steel"){
+  //     return Color(0xFFb1adbb);
+  //   }else if (type == "fairy"){
+  //     return Color(0xFFf8b8e8);
+  //   }else {
+  //     return Color.fromARGB(255, 66, 66, 66);
+  //   }
+  // }

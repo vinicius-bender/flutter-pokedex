@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:pokedex/UI/pokedex_home.dart';
 
 void main (){
-  runApp(PokedexApp());
+  runApp(const PokedexApp());
 }
 
 class PokedexApp extends StatelessWidget {
